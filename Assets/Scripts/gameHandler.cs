@@ -9,6 +9,7 @@ public class gameHandler : MonoBehaviour
     [SerializeField] public actualEnergyBar energyBar;
 
     private coilStats C;
+    private upgradeSystem uS;
     private proceduralSpawning pS;
     private bool gameHasEnded = false;
     private float restartDelay = 2f;
@@ -20,6 +21,7 @@ public class gameHandler : MonoBehaviour
     void Start() {
         C = FindObjectOfType<coilStats>();
         pS = FindObjectOfType<proceduralSpawning>();
+        uS = FindObjectOfType<upgradeSystem>();
         energyBar.SetSize(2f);
         healthBar.SetSize(2f);
         numberOfEnemies = 0;
@@ -38,7 +40,7 @@ public class gameHandler : MonoBehaviour
 
         else if ((numberOfEnemies == 0) && (wasSpawned == true) && (nextDay == true)) 
         {
-            Debug.Log("UPGRADES!!!!!!!!!!!!!!");
+            uS.upgradeMenuActive();
             pS.dayNumber += 1;
             nextDay = false;
             pS.difficultyIndex = 0;
