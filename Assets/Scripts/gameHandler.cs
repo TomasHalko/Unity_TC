@@ -16,6 +16,7 @@ public class gameHandler : MonoBehaviour
     public int numberOfEnemies = 0;
     public bool nextDay = false;
     public bool wasSpawned = false;
+    public bool isPaused = false;
 
     // Start is called before the-first frame update
     void Start() {
@@ -38,8 +39,9 @@ public class gameHandler : MonoBehaviour
             }
         }
 
-        else if ((numberOfEnemies == 0) && (wasSpawned == true) && (nextDay == true)) 
+        else if ((numberOfEnemies == 0) && (wasSpawned == true) && (nextDay == true) && (isPaused == false)) 
         {
+            isPaused = true;
             uS.upgradeMenuActive();
             pS.dayNumber += 1;
             nextDay = false;

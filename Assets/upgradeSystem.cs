@@ -10,12 +10,13 @@ public class upgradeSystem : MonoBehaviour
     private Rigidbody2D rb;
     private proceduralSpawning pS;
     [SerializeField]
-    private GameObject upgrades;
+    private GameObject upgradeMenu;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        upgradeMenu.SetActive(!upgradeMenu.activeSelf);
         mS = FindObjectOfType<moneySystem>();
         gH = FindObjectOfType<gameHandler>();
         rb = GetComponent<Rigidbody2D>();
@@ -31,5 +32,14 @@ public class upgradeSystem : MonoBehaviour
     public void upgradeMenuActive()
     {
         Debug.Log("Upgrade");
+        upgradeMenu.SetActive(!upgradeMenu.activeSelf);
+        Time.timeScale = 0;
     }
+
+    public void upgradeCompleted()
+    {
+        upgradeMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+
 }

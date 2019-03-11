@@ -53,6 +53,10 @@ public class proceduralSpawning : MonoBehaviour
                 gH.numberOfEnemies += 1;
                 gH.wasSpawned = true;
             }
+            else if (difficultyIndex + 0.1 > 1)
+            {
+                gH.isPaused = false;
+            }
             yield return new WaitForSeconds(spawnWait);
         }
 
@@ -69,6 +73,7 @@ public class proceduralSpawning : MonoBehaviour
                 Instantiate(groundEnemies[randomGroundEnemy], groundSpawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
                 gH.numberOfEnemies += 1;
                 gH.wasSpawned = true;
+                
             }
             else if ((randomGroundEnemy == 1) && (difficultyIndex + 0.3 <= 2))
             {
@@ -76,7 +81,11 @@ public class proceduralSpawning : MonoBehaviour
                 Instantiate(groundEnemies[randomGroundEnemy], groundSpawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
                 gH.numberOfEnemies += 1;
                 gH.wasSpawned = true;
-            }           
+            }
+            else if (difficultyIndex + 0.1 > 2)
+            {
+                gH.isPaused = false;
+            }
             yield return new WaitForSeconds(spawnWait);
         }
 
@@ -100,6 +109,10 @@ public class proceduralSpawning : MonoBehaviour
                 Instantiate(groundEnemies[randomGroundEnemy], groundSpawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
                 gH.numberOfEnemies += 1;
                 gH.wasSpawned = true;
+            }
+            else if (difficultyIndex + 0.1 > 3)
+            {
+                gH.isPaused = false;
             }
             yield return new WaitForSeconds(spawnWait);
         }
@@ -125,6 +138,10 @@ public class proceduralSpawning : MonoBehaviour
                 gH.numberOfEnemies += 1;
                 gH.wasSpawned = true;
             }
+            else if (difficultyIndex + 0.1 > 4)
+            {
+                gH.isPaused = false;
+            }
             yield return new WaitForSeconds(spawnWait);
         }
 
@@ -142,6 +159,10 @@ public class proceduralSpawning : MonoBehaviour
                 Instantiate(airEnemies[randomAirEnemy], airSpawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
                 gH.numberOfEnemies += 1;
                 gH.wasSpawned = true;
+            }
+            else if (difficultyIndex + 0.1 > 5)
+            {
+                gH.isPaused = false;
             }
             yield return new WaitForSeconds(spawnWait);
         }
@@ -169,12 +190,16 @@ public class proceduralSpawning : MonoBehaviour
                 gH.numberOfEnemies += 1;
                 gH.wasSpawned = true;
             }
-            if ((randomAirEnemy == 0) && (difficultyIndex + 0.3 <= 6))
+            else if ((randomAirEnemy == 0) && (difficultyIndex + 0.3 <= 6))
             {
                 difficultyIndex += 0.3;
                 Instantiate(airEnemies[randomAirEnemy], airSpawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
                 gH.numberOfEnemies += 1;
                 gH.wasSpawned = true;
+            }
+            else if (difficultyIndex + 0.1 > 6)
+            {
+                gH.isPaused = false;
             }
             yield return new WaitForSeconds(spawnWait);
         }
