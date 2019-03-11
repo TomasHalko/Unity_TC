@@ -44,9 +44,6 @@ TagManager:
   - name: Background
     uniqueID: 4217684543
     locked: 0
-  - name: UI
-    uniqueID: 39714085
-    locked: 0
   - name: Soldier
     uniqueID: 1187203381
     locked: 0
@@ -61,4 +58,7 @@ TagManager:
     locked: 0
   - name: Coil
     uniqueID: 510426563
+    locked: 0
+  - name: UI
+    uniqueID: 39714085
     locked: 0
