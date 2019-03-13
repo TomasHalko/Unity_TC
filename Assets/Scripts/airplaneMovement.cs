@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class airplaneMovement : MonoBehaviour
-{
+{   
+    // Airplane Stats
+    public float airplaneSpeed = 65f;
+    private float airplaneSlowedSpeed;
+
+    // Unity Hooks
     private airplaneBehaviour aB;
     private Rigidbody2D rb;
     private coilStats C;
-    public float airplaneSpeed = 65f;
-    private float airplaneSlowedSpeed;
 
     // Start is called before the first frame update 
     void Start()

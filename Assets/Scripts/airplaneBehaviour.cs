@@ -5,14 +5,14 @@ using CodeMonkey.Utils;
 
 public class airplaneBehaviour : MonoBehaviour
 {
-    //Airplane Stats
+    // Airplane Stats
     public float airplaneHealth = 1000f;
     public float airplaneDamage = 150f;
     public float airplaneFireRate = 200f;
     public float airplaneAggroPosStart = 0f;
     public float airplaneAggroPosEnd = 5f;
 
-    //Unity Hooks
+    // Unity Hooks
     private GameObject Import;
     private moneySystem mS;
     private coilStats C;

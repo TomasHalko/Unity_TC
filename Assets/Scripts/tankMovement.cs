@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class tankMovement : MonoBehaviour
 {
+    // Tank Stats
+    public float tankSpeed = 35f;
+    private float tankSlowedSpeed;
+
+    // Unity Hooks
     private tankBehaviour tB;
     private Rigidbody2D rb;
     private coilStats C;
-    public float tankSpeed = 35f;
-    private float tankSlowedSpeed;
 
     // Start is called before the first frame update 
     void Start()

@@ -5,13 +5,13 @@ using CodeMonkey.Utils;
 
 public class soldierBehaviour : MonoBehaviour
 {
-    //soldierStats
+    // Coil Stats
     public float soldierHealth = 1000f;
     public float soldierDamage = 20f;
     public float soldierFireRate = 500f;
     public float soldierAggroPos = 4.5f;
 
-    //Unity Hooks
+    // Unity Hooks
     private GameObject Import;
     private moneySystem mS;
     private coilStats C;

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class soldierMovement : MonoBehaviour
 {
+    // Soldier Stats
+    public float soldierSpeed = 30f;
+    private float soldierSlowedSpeed;
+
+    //Unity Hooks
     private soldierBehaviour sB;
     private Rigidbody2D rb;
     private coilStats C;
-    public float soldierSpeed = 30f;
-    private float soldierSlowedSpeed;
 
     // Start is called before the first frame update 
     void Start()
