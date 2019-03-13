@@ -5,7 +5,7 @@ using CodeMonkey.Utils;
 
 public class tankBehaviour : MonoBehaviour
 {
-    //tankStats
+    // Tank Stats
     public float tankHealth = 10000f;
     public float tankDamage = 500f;
     public float tankFireRate = 30f;

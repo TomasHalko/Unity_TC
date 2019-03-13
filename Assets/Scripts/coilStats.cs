@@ -5,7 +5,7 @@ using CodeMonkey.Utils;
 
 public class coilStats : MonoBehaviour
 { 
-    //Coil Stats
+    // Coil Stats
     public float coilHealth = 1000f;
     public float coilEnergy = 1000f;
     public float coilEnergyMax = 1000f;
@@ -16,7 +16,7 @@ public class coilStats : MonoBehaviour
     public float coilHoldDamage = 0f;
     public float coilSlowRate = 0.6f;
 
-    //Unity hooks 
+    // Unity hooks 
     [SerializeField] public actualHealthBar healthBar;
     [SerializeField] public actualEnergyBar energyBar;
     public Rigidbody2D rb;
