@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class gameHandler : MonoBehaviour
 {
+    // Bar Hooks
     [SerializeField] public actualHealthBar healthBar;
     [SerializeField] public actualEnergyBar energyBar;
-
+    
+    // Unity Hooks
     private coilStats C;
     private upgradeSystem uS;
     private proceduralSpawning pS;
+
+    // Game Handling Variables
     private bool gameHasEnded = false;
     private float restartDelay = 2f;
     public int numberOfEnemies = 0;
