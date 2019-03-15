@@ -7,17 +7,22 @@ public class proceduralSpawning : MonoBehaviour
     public int dayNumber;
     public int numberOfSpawns;
     public double difficultyIndex;
+
     public GameObject[] groundEnemies;
     public Vector3 groundSpawnValues;
     public GameObject[] airEnemies;
     public Vector3 airSpawnValues;
+
     private float spawnWait;
     public float spawnMostWait;
     public float spawnLeastWait;
     public int startWait;
     public bool stop;
+
     private int randomGroundEnemy;
     private int randomAirEnemy;
+
+    // Unity Hooks
     private gameHandler gH;
 
     // Start is called before the first frame update
