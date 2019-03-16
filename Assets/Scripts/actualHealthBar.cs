@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class actualHealthBar : MonoBehaviour
 {
+    //Unity Hooks 
+
     public Transform bar;
 
     // Start is called before the first frame update
