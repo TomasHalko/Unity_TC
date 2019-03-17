@@ -41,24 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 4217684543
-    locked: 0
-  - name: Soldier
-    uniqueID: 1187203381
-    locked: 0
-  - name: Bombplane
-    uniqueID: 1079711023
-    locked: 0
-  - name: Aircraft
-    uniqueID: 1655035049
-    locked: 0
-  - name: Tank
-    uniqueID: 3340749723
+  - name: UI
+    uniqueID: 2932193335
     locked: 0
   - name: Coil
-    uniqueID: 510426563
+    uniqueID: 2605445713
     locked: 0
-  - name: UI
-    uniqueID: 39714085
+  - name: Soldier
+    uniqueID: 2089294595
+    locked: 0
+  - name: Tank
+    uniqueID: 3942685883
+    locked: 0
+  - name: Airplane
+    uniqueID: 2077819285
+    locked: 0
+  - name: Bombplane
+    uniqueID: 3449128077
+    locked: 0
+  - name: Background
+    uniqueID: 3626089483
     locked: 0

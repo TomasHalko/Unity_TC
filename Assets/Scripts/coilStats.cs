@@ -7,6 +7,7 @@ public class coilStats : MonoBehaviour
 { 
     // Coil Stats
     public float coilHealth = 1000f;
+    public float coilHealthMax = 1000f;
     public float coilEnergy = 1000f;
     public float coilEnergyMax = 1000f;
     public float coilEnergyRechargePerSec = 1f;
@@ -17,8 +18,6 @@ public class coilStats : MonoBehaviour
     public float coilSlowRate = 0.6f;
 
     // Unity hooks 
-    [SerializeField] public actualHealthBar healthBar;
-    [SerializeField] public actualEnergyBar energyBar;
     public Rigidbody2D rb;
     public Collider2D coll;
     public Vector2 startPos;
@@ -28,13 +27,6 @@ public class coilStats : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        FunctionPeriodic.Create(() =>
-        {
-            healthBar.SetSize(0f + coilHealth / 5000f);
-            energyBar.SetSize(0f + (coilEnergy / 5000f));
-
-        }, 0.005f);
 
         FunctionPeriodic.Create(() =>
         {
