@@ -9,6 +9,7 @@ public class upgradeSystem : MonoBehaviour
     private gameHandler gH;
     private Rigidbody2D rb;
     private proceduralSpawning pS;
+
     [SerializeField]
     private GameObject upgradeMenu;
 
@@ -33,7 +34,7 @@ public class upgradeSystem : MonoBehaviour
     {
         Debug.Log("Upgrade");
         upgradeMenu.SetActive(!upgradeMenu.activeSelf);
-        Time.timeScale = 0;
+        Time.timeScale = 1;
     }
 
     public void upgradeCompleted()

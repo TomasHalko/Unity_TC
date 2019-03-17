@@ -4,11 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class gameHandler : MonoBehaviour
-{
-    // Bar Hooks
-    [SerializeField] public actualHealthBar healthBar;
-    [SerializeField] public actualEnergyBar energyBar;
-    
+{   
     // Unity Hooks
     private coilStats C;
     private upgradeSystem uS;
@@ -27,8 +23,6 @@ public class gameHandler : MonoBehaviour
         C = FindObjectOfType<coilStats>();
         pS = FindObjectOfType<proceduralSpawning>();
         uS = FindObjectOfType<upgradeSystem>();
-        energyBar.SetSize(2f);
-        healthBar.SetSize(2f);
         numberOfEnemies = 0;
     }
 
