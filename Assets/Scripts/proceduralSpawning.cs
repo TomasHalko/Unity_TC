@@ -47,7 +47,7 @@ public class proceduralSpawning : MonoBehaviour
         while ((!stop) && (dayNumber == 1) && (difficultyIndex <= 1))
         {
             gH.nextDay = true;
-            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x, groundSpawnValues.x), Random.Range(-groundSpawnValues.y + 0.3f, groundSpawnValues.y + 0.3f), 1);
+            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x - 10f, groundSpawnValues.x - 10f), Random.Range(-groundSpawnValues.y - 1.75f, groundSpawnValues.y - 1.75f), 1);
             Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x, airSpawnValues.x), Random.Range(-airSpawnValues.y, airSpawnValues.y), 1);
             randomGroundEnemy = Random.Range(0, groundEnemies.Length-1);
 
