@@ -17,7 +17,7 @@ public class coilStats : MonoBehaviour
     public float coilHoldDamage = 0f;
     public float coilSlowRate = 0.6f;
 
-    // Unity hooks 
+    // Unity Hooks 
     public Rigidbody2D rb;
     public Collider2D coll;
     public Vector2 startPos;
@@ -26,20 +26,26 @@ public class coilStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Get Unity Components
         rb = GetComponent<Rigidbody2D>();
 
+        // Periodic function for recharging the coil
         FunctionPeriodic.Create(() =>
         {
             energyRecharge();
         }, 60 / coilEnergyRechargePerSec);
     }
 
+    // Function that recharges the coil
     public void energyRecharge ()
     {
+        // Most common scenario for recharging the coil
         if (((coilEnergy < coilEnergyMax) && (Input.touchCount < 1)) && (coilEnergyMax - coilEnergy > coilEnergyRechargePerSec))
         {
             coilEnergy += coilEnergyRechargePerSec;
         }
+
+        // Prevents the function from overcharging the coil
         else if (Input.touchCount < 1)
         {
             coilEnergy += coilEnergyMax - coilEnergy;
