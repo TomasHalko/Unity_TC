@@ -15,7 +15,7 @@ public class coilStats : MonoBehaviour
     public float coilHoldEnergyConsumption = 10f; 
     public float coilTapDamage = 0f;
     public float coilHoldDamage = 0f;
-    public float coilSlowRate = 0.6f;
+    public float coilSlowRate = 0.8f;
 
     // Unity Hooks 
     public Rigidbody2D rb;

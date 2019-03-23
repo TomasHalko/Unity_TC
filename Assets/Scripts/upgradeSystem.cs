@@ -5,8 +5,11 @@ using UnityEngine;
 public class upgradeSystem : MonoBehaviour
 {
     // Upgrade Values
-    private float repairAmount;
-    private float healthUpgradeAmount;
+    private float repairAmount = 100f;
+    private float healthUpgradeAmount = 1500f;
+    private float energyUpgradeAmount = 1500f;
+    private float slowUpgradeAmount = 0.2f;
+    public bool hasMiniCoil = false;
 
     // Unity Hooks
     private moneySystem mS;
@@ -19,18 +22,20 @@ public class upgradeSystem : MonoBehaviour
     [SerializeField]
     private GameObject upgradeMenu;
 
+    [SerializeField]
+    private GameObject miniCoil;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        miniCoil.SetActive(!miniCoil.activeSelf);
         upgradeMenu.SetActive(!upgradeMenu.activeSelf);
         mS = FindObjectOfType<moneySystem>();
         gH = FindObjectOfType<gameHandler>();
         rb = GetComponent<Rigidbody2D>();
         C = FindObjectOfType<coilStats>();
         pS = FindObjectOfType<proceduralSpawning>();
-
-        repairAmount = 100f;
     }
 
     // Update is called once per frame
@@ -64,16 +69,37 @@ public class upgradeSystem : MonoBehaviour
         }
     }
 
-    public void healthUpgrade1()
+    public void healthUpgrade()
     {
         C.coilHealthMax += healthUpgradeAmount;
-        C.coilHealth += healthReplenish(C.coilHealth, 0, C.coilHealthMax, 0, 100);
+        C.coilHealth += percReplenishment(C.coilHealth, 0, C.coilHealthMax, 0, 100);
+        healthUpgradeAmount += 1500f;
+    }
+
+    public void energyUpgrade()
+    {
+        C.coilEnergyMax += energyUpgradeAmount;
+        C.coilEnergy += percReplenishment(C.coilEnergy, 0, C.coilEnergyMax, 0, 100);
+        energyUpgradeAmount += 1500f;
+    }
+    
+    public void purchaseMiniCoil()
+    {
+        hasMiniCoil = true;
+        miniCoil.SetActive(!miniCoil.activeSelf);
+    }
+
+    public void slowUpgrade()
+    {
+        C.coilSlowRate -= slowUpgradeAmount;
+        slowUpgradeAmount += 0.1f;
     }
 
     // Function that returns a value between 0 and 100
     // that is used to repair the Coil based on your health percentage
-    public float healthReplenish(float value, float inMin, float inMax, float outMin, float outMax)
+    public float percReplenishment(float value, float inMin, float inMax, float outMin, float outMax)
     {
         return ((value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin) / 100 * healthUpgradeAmount;
     }
 }
+
