@@ -10,7 +10,7 @@ public class coilStats : MonoBehaviour
     public float coilHealthMax = 1000f;
     public float coilEnergy = 1000f;
     public float coilEnergyMax = 1000f;
-    public float coilEnergyRechargePerSec = 1f;
+    public float coilEnergyRechargePerSec = 100f;
     public float coilTapEnergyConsumption = 50f;
     public float coilHoldEnergyConsumption = 10f; 
     public float coilTapDamage = 0f;
@@ -33,22 +33,17 @@ public class coilStats : MonoBehaviour
         FunctionPeriodic.Create(() =>
         {
             energyRecharge();
-        }, 60 / coilEnergyRechargePerSec);
+        }, 0.1f);
     }
 
     // Function that recharges the coil
     public void energyRecharge ()
     {
         // Most common scenario for recharging the coil
-        if (((coilEnergy < coilEnergyMax) && (Input.touchCount < 1)) && (coilEnergyMax - coilEnergy > coilEnergyRechargePerSec))
+        if ((coilEnergy < coilEnergyMax) && (Input.touchCount < 1))
         {
-            coilEnergy += coilEnergyRechargePerSec;
+            coilEnergy += coilEnergyRechargePerSec * 0.1f;
         }
 
-        // Prevents the function from overcharging the coil
-        else if (Input.touchCount < 1)
-        {
-            coilEnergy += coilEnergyMax - coilEnergy;
-        }
     }
 }
