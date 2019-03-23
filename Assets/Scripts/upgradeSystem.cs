@@ -6,8 +6,8 @@ public class upgradeSystem : MonoBehaviour
 {
     // Upgrade Values
     private float repairAmount = 100f;
-    private float healthUpgradeAmount = 1500f;
-    private float energyUpgradeAmount = 1500f;
+    private float healthUpgradeAmount = 2000f;
+    private float energyUpgradeAmount = 2000f;
     private float slowUpgradeAmount = 0.2f;
     public bool hasMiniCoil = false;
 
@@ -47,7 +47,7 @@ public class upgradeSystem : MonoBehaviour
     {
         Debug.Log("Upgrade");
         upgradeMenu.SetActive(!upgradeMenu.activeSelf);
-        Time.timeScale = 1;
+        Time.timeScale = 0;
     }
 
     public void upgradeCompleted()
@@ -72,15 +72,15 @@ public class upgradeSystem : MonoBehaviour
     public void healthUpgrade()
     {
         C.coilHealthMax += healthUpgradeAmount;
-        C.coilHealth += percReplenishment(C.coilHealth, 0, C.coilHealthMax, 0, 100);
-        healthUpgradeAmount += 1500f;
+        C.coilHealth += C.coilHealth * (percReplenishment(C.coilHealth, 0, C.coilHealthMax, 0, 100) / 100);
+        healthUpgradeAmount += 2000f;
     }
 
     public void energyUpgrade()
     {
         C.coilEnergyMax += energyUpgradeAmount;
-        C.coilEnergy += percReplenishment(C.coilEnergy, 0, C.coilEnergyMax, 0, 100);
-        energyUpgradeAmount += 1500f;
+        C.coilEnergy += C.coilEnergy * (percReplenishment(C.coilEnergy, 0, C.coilEnergyMax, 0, 100) / 100);
+        energyUpgradeAmount += 2000f;
     }
     
     public void purchaseMiniCoil()

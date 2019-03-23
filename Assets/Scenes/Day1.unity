@@ -2555,11 +2555,11 @@ MonoBehaviour:
   coilHealthMax: 10000
   coilEnergy: 1000
   coilEnergyMax: 1000
-  coilEnergyRechargePerSec: 1
-  coilTapEnergyConsumption: 50
-  coilHoldEnergyConsumption: 10
-  coilTapDamage: 0
-  coilHoldDamage: 0
+  coilEnergyRechargePerSec: 100
+  coilTapEnergyConsumption: 5
+  coilHoldEnergyConsumption: 1
+  coilTapDamage: 50
+  coilHoldDamage: 25
   coilSlowRate: 0.6
   rb: {fileID: 2115660909}
   coll: {fileID: 2115660908}
