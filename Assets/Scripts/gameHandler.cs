@@ -14,9 +14,7 @@ public class gameHandler : MonoBehaviour
     private bool gameHasEnded = false;
     private float restartDelay = 2f;
     public int numberOfEnemies = 0;
-    public bool nextDay = false;
-    public bool wasSpawned = false;
-    public bool isPaused = false;
+    public bool waveFinished;
 
     // Start is called before the-first frame update
     void Start() {
@@ -37,12 +35,10 @@ public class gameHandler : MonoBehaviour
             }
         }
 
-        else if ((numberOfEnemies == 0) && (wasSpawned == true) && (nextDay == true) && (isPaused == false)) 
+        else if ((numberOfEnemies == 0) && (pS.enemySpawned == true)) 
         {
-            isPaused = true;
             uS.upgradeMenuActive();
             pS.dayNumber += 1;
-            nextDay = false;
             pS.difficultyIndex = 0;
         }
     }
