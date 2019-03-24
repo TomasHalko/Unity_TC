@@ -47,13 +47,14 @@ public class upgradeSystem : MonoBehaviour
     {
         Debug.Log("Upgrade");
         upgradeMenu.SetActive(!upgradeMenu.activeSelf);
-        Time.timeScale = 0;
+        pS.stop = true;
+        pS.enemySpawned = false;
     }
 
     public void upgradeCompleted()
     {
         upgradeMenu.SetActive(false);
-        Time.timeScale = 1;
+        pS.stop = false;
     }
 
     public void repairCoil()
