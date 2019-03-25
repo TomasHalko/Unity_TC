@@ -133,11 +133,10 @@ public class soldierBehaviour : MonoBehaviour
 
         if (soldierHealth <= 0)
         {
-            gH.numberOfEnemies -= 1;
+            gH.enemiesKilled += 1;
             mS.gameCurrency += 500;
             mS.gameScore += 1350;
             Destroy(gameObject);
-
         }
 
     }
@@ -153,7 +152,7 @@ public class soldierBehaviour : MonoBehaviour
 
         if (soldierHealth <= 0)
         {
-            gH.numberOfEnemies -= 1;
+            gH.enemiesKilled += 1;
             mS.gameCurrency += 500;
             mS.gameScore += 1350;
             Destroy(gameObject);
