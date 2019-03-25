@@ -14,6 +14,7 @@ public class gameHandler : MonoBehaviour
     private bool gameHasEnded = false;
     private float restartDelay = 2f;
     public int numberOfEnemies = 0;
+    public int enemiesKilled = 0;
     public bool waveFinished;
 
     // Start is called before the-first frame update
@@ -35,7 +36,7 @@ public class gameHandler : MonoBehaviour
             }
         }
 
-        else if ((numberOfEnemies == 0) && (pS.enemySpawned == true)) 
+        else if ((numberOfEnemies == 0) && (enemiesKilled == 10)) 
         {
             uS.upgradeMenuActive();
             pS.dayNumber += 1;

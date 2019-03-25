@@ -55,7 +55,6 @@ public class proceduralSpawning : MonoBehaviour
                 gH.numberOfEnemies += 1;
                 difficultyIndex += 0.1;
                 Instantiate(groundEnemies[randomGroundEnemy], groundSpawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
-                enemySpawned = true;
             }
             yield return new WaitForSeconds(spawnWait);
         }
