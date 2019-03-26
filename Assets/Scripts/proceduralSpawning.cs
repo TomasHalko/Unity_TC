@@ -6,7 +6,6 @@ public class proceduralSpawning : MonoBehaviour
 {
     public double dayNumber;
     public double difficultyIndex;
-    public bool enemySpawned = false;
 
     public GameObject[] groundEnemies;
     public Vector3 groundSpawnValues;
@@ -38,6 +37,12 @@ public class proceduralSpawning : MonoBehaviour
     void Update()
     {     
         spawnWait = Random.Range(spawnLeastWait, spawnMostWait);
+
+        if (gH.nextDay == true)
+        {
+            StartCoroutine(waitSpawner());
+            gH.nextDay = false;
+        }
     }
     
     IEnumerator waitSpawner()
@@ -46,8 +51,8 @@ public class proceduralSpawning : MonoBehaviour
 
         while ((!stop) && (dayNumber == 1) && (difficultyIndex <= 1))
         {
-            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x - 10f, groundSpawnValues.x - 10f), Random.Range(-groundSpawnValues.y - 1.75f, groundSpawnValues.y - 1.75f), 1);
-            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x, airSpawnValues.x), Random.Range(-airSpawnValues.y, airSpawnValues.y), 1);
+            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x - 13f, groundSpawnValues.x - 13f), Random.Range(-groundSpawnValues.y - 1.75f, groundSpawnValues.y - 1.75f), 1);
+            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x - 13f, airSpawnValues.x - 13f), Random.Range(-airSpawnValues.y + 2.25f, airSpawnValues.y + 2.25f), 1);
             randomGroundEnemy = Random.Range(0, groundEnemies.Length-1);
 
             if ((randomGroundEnemy == 0) && (difficultyIndex + 0.1 <= 1))
@@ -61,8 +66,8 @@ public class proceduralSpawning : MonoBehaviour
 
         while ((!stop) && (dayNumber == 2) && (difficultyIndex <= 2))
         {
-            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x, groundSpawnValues.x), Random.Range(-groundSpawnValues.y + 0.3f, groundSpawnValues.y + 0.3f), 1);
-            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x, airSpawnValues.x), Random.Range(-airSpawnValues.y, airSpawnValues.y), 1);
+            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x - 13f, groundSpawnValues.x - 13f), Random.Range(-groundSpawnValues.y - 1.75f, groundSpawnValues.y - 1.75f), 1);
+            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x - 13f, airSpawnValues.x - 13f), Random.Range(-airSpawnValues.y + 2.25f, airSpawnValues.y + 2.25f), 1);
 
             randomGroundEnemy = Random.Range(0, groundEnemies.Length);
             if ((randomGroundEnemy == 0) && (difficultyIndex + 0.1 <= 2))
@@ -70,22 +75,20 @@ public class proceduralSpawning : MonoBehaviour
                 difficultyIndex += 0.1;
                 Instantiate(groundEnemies[randomGroundEnemy], groundSpawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
                 gH.numberOfEnemies += 1;
-                enemySpawned = true;
             }
             else if ((randomGroundEnemy == 1) && (difficultyIndex + 0.3 <= 2))
             {
                 difficultyIndex += 0.3;
                 Instantiate(groundEnemies[randomGroundEnemy], groundSpawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
                 gH.numberOfEnemies += 1;
-                enemySpawned = true;
             }
             yield return new WaitForSeconds(spawnWait);
         }
 
         while ((!stop) && (dayNumber == 3) && (difficultyIndex <= 3))
         {
-            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x, groundSpawnValues.x), Random.Range(-groundSpawnValues.y + 0.3f, groundSpawnValues.y + 0.3f), 1);
-            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x, airSpawnValues.x), Random.Range(-airSpawnValues.y, airSpawnValues.y), 1);
+            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x - 13f, groundSpawnValues.x - 13f), Random.Range(-groundSpawnValues.y - 1.75f, groundSpawnValues.y - 1.75f), 1);
+            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x - 13f, airSpawnValues.x - 13f), Random.Range(-airSpawnValues.y + 2.25f, airSpawnValues.y + 2.25f), 1);
 
             randomGroundEnemy = Random.Range(0, groundEnemies.Length);
             if ((randomGroundEnemy == 0) && (difficultyIndex + 0.1 <= 3))
@@ -105,8 +108,8 @@ public class proceduralSpawning : MonoBehaviour
 
         while ((!stop) && (dayNumber == 4) && (difficultyIndex <= 4))
         {
-            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x, groundSpawnValues.x), Random.Range(-groundSpawnValues.y + 0.3f, groundSpawnValues.y + 0.3f), 1);
-            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x, airSpawnValues.x), Random.Range(-airSpawnValues.y, airSpawnValues.y), 1);
+            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x - 13f, groundSpawnValues.x - 13f), Random.Range(-groundSpawnValues.y - 1.75f, groundSpawnValues.y - 1.75f), 1);
+            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x - 13f, airSpawnValues.x - 13f), Random.Range(-airSpawnValues.y + 2.25f, airSpawnValues.y + 2.25f), 1);
 
             randomGroundEnemy = Random.Range(0, groundEnemies.Length);
             if ((randomGroundEnemy == 0) && (difficultyIndex + 0.1 <= 4))
@@ -126,8 +129,8 @@ public class proceduralSpawning : MonoBehaviour
 
         while ((!stop) && (dayNumber == 5) && (difficultyIndex <= 5))
         {
-            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x, groundSpawnValues.x), Random.Range(-groundSpawnValues.y + 0.3f, groundSpawnValues.y + 0.3f), 1);
-            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x, airSpawnValues.x), Random.Range(-airSpawnValues.y + 4.75f, airSpawnValues.y + 4.75f), 1);
+            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x - 13f, groundSpawnValues.x - 13f), Random.Range(-groundSpawnValues.y - 1.75f, groundSpawnValues.y - 1.75f), 1);
+            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x - 13f, airSpawnValues.x - 13f), Random.Range(-airSpawnValues.y + 2.25f, airSpawnValues.y + 2.25f), 1);
 
             randomAirEnemy = Random.Range(0, airEnemies.Length);
 
@@ -142,8 +145,8 @@ public class proceduralSpawning : MonoBehaviour
 
         while ((!stop) && (dayNumber == 6) && (difficultyIndex <= 6))
         {
-            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x, groundSpawnValues.x), Random.Range(-groundSpawnValues.y + 0.3f, groundSpawnValues.y + 0.3f), 1);
-            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x, airSpawnValues.x), Random.Range(-airSpawnValues.y + 4.75f, airSpawnValues.y + 4.75f), 1);
+            Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x - 13f, groundSpawnValues.x - 13f), Random.Range(-groundSpawnValues.y - 1.75f, groundSpawnValues.y - 1.75f), 1);
+            Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x - 13f, airSpawnValues.x - 13f), Random.Range(-airSpawnValues.y + 2.25f, airSpawnValues.y + 2.25f), 1);
 
             randomGroundEnemy = Random.Range(0, groundEnemies.Length);
             randomAirEnemy = Random.Range(0, airEnemies.Length);

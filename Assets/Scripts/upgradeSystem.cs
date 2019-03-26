@@ -45,6 +45,7 @@ public class upgradeSystem : MonoBehaviour
 
     public void upgradeMenuActive()
     {
+        pS.stop = true;
         Debug.Log("Upgrade");
         upgradeMenu.SetActive(!upgradeMenu.activeSelf);
     }
@@ -53,6 +54,8 @@ public class upgradeSystem : MonoBehaviour
     {
         upgradeMenu.SetActive(false);
         gH.enemiesKilled = 0;
+        pS.stop = false;
+        gH.nextDay = true;
     }
 
     public void repairCoil()

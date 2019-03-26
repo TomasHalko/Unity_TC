@@ -11,11 +11,11 @@ public class gameHandler : MonoBehaviour
     private proceduralSpawning pS;
 
     // Game Handling Variables
+    public bool nextDay = false;
     private bool gameHasEnded = false;
     private float restartDelay = 2f;
     public int numberOfEnemies = 0;
     public int enemiesKilled = 0;
-    public bool waveFinished;
 
     // Start is called before the-first frame update
     void Start() {
@@ -36,11 +36,12 @@ public class gameHandler : MonoBehaviour
             }
         }
 
-        else if ((numberOfEnemies == 0) && (enemiesKilled == 10)) 
+        else if ((numberOfEnemies == enemiesKilled) && (enemiesKilled != 0)) 
         {
             uS.upgradeMenuActive();
             pS.dayNumber += 1;
             pS.difficultyIndex = 0;
+            numberOfEnemies = 0;
         }
     }
 

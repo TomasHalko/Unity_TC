@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7348c5f833b28549aaf55cb690f58f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankHealth: 1000
+  tankHealth: 100
   tankDamage: 1000
   tankFireRate: 30
   tankAggroPos: 3

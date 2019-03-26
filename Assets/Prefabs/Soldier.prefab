@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f507edf99649040a9005234b750fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierHealth: 100
+  soldierHealth: 10
   soldierDamage: 20
   soldierFireRate: 500
   soldierAggroPos: 4.5
