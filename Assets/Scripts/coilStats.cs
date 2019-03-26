@@ -20,6 +20,7 @@ public class coilStats : MonoBehaviour
     // Unity Hooks 
     public Rigidbody2D rb;
     public Collider2D coll;
+    private proceduralSpawning pS; 
     public Vector2 startPos;
     public Vector2 direction;
 
@@ -28,6 +29,7 @@ public class coilStats : MonoBehaviour
     {
         // Get Unity Components
         rb = GetComponent<Rigidbody2D>();
+        pS = FindObjectOfType<proceduralSpawning>();
 
         // Periodic function for recharging the coil
         FunctionPeriodic.Create(() =>
@@ -40,7 +42,7 @@ public class coilStats : MonoBehaviour
     public void energyRecharge ()
     {
         // Most common scenario for recharging the coil
-        if ((coilEnergy < coilEnergyMax) && (Input.touchCount < 1))
+        if ((coilEnergy < coilEnergyMax) && (Input.touchCount < 1) && (!pS.stop))
         {
             coilEnergy += coilEnergyRechargePerSec * 0.1f;
         }

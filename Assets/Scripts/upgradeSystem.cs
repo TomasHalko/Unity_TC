@@ -9,6 +9,13 @@ public class upgradeSystem : MonoBehaviour
     private float healthUpgradeAmount = 2000f;
     private float energyUpgradeAmount = 2000f;
     private float slowUpgradeAmount = 0.2f;
+
+    private int repairCost = 150;
+    private int healthUpgradeCost = 2000;
+    private int energyUpgradeCost = 2000;
+    private int slowUpgradeCost = 4000;
+    private int miniCoilCost = 5000;
+
     public bool hasMiniCoil = false;
 
     // Unity Hooks
@@ -60,48 +67,89 @@ public class upgradeSystem : MonoBehaviour
 
     public void repairCoil()
     {
-        if (C.coilHealth <= C.coilHealthMax - repairAmount) 
+        if ((C.coilHealth <= C.coilHealthMax - repairAmount) && (mS.gameCurrency >= repairCost))
         {
             C.coilHealth += repairAmount;
+            mS.gameCurrency -= repairCost;
         }
 
-        else
+        else if (mS.gameCurrency >= repairCost)
         {
             C.coilHealth += C.coilHealthMax - C.coilHealth;
+            mS.gameCurrency -= repairCost;
+        }
+        else if (C.coilHealthMax == C.coilHealth)
+        {
+            Debug.Log("HP Full!");
+        }
+        else
+        {
+            Debug.Log("Not enough money!");
         }
     }
 
     public void healthUpgrade()
     {
-        C.coilHealthMax += healthUpgradeAmount;
-        C.coilHealth += C.coilHealth * (percReplenishment(C.coilHealth, 0, C.coilHealthMax, 0, 100) / 100);
-        healthUpgradeAmount += 2000f;
+        if (mS.gameCurrency >= healthUpgradeCost)
+        {
+            C.coilHealthMax += healthUpgradeAmount;
+            C.coilHealth += healthUpgradeAmount;
+            mS.gameCurrency -= healthUpgradeCost;
+            healthUpgradeCost += 3000;
+            healthUpgradeAmount += 2000f;
+        }
+        else
+        {
+            Debug.Log("Not enough money!");
+        }
     }
 
     public void energyUpgrade()
     {
-        C.coilEnergyMax += energyUpgradeAmount;
-        C.coilEnergy += C.coilEnergy * (percReplenishment(C.coilEnergy, 0, C.coilEnergyMax, 0, 100) / 100);
-        energyUpgradeAmount += 2000f;
+        if (mS.gameCurrency >= energyUpgradeCost)
+        {
+            C.coilEnergyMax += energyUpgradeAmount;
+            C.coilEnergy += energyUpgradeAmount;
+            mS.gameCurrency -= energyUpgradeCost;
+            energyUpgradeCost += 3000;
+            energyUpgradeAmount += 2000f;
+        }
+        else
+        {
+            Debug.Log("Not enough money!");
+        }
     }
     
     public void purchaseMiniCoil()
     {
-        hasMiniCoil = true;
-        miniCoil.SetActive(!miniCoil.activeSelf);
+        if ((mS.gameCurrency >= miniCoilCost) && (hasMiniCoil == false))
+        {
+            mS.gameCurrency -= miniCoilCost;
+            hasMiniCoil = true;
+            miniCoil.SetActive(!miniCoil.activeSelf);
+        }
+        else if (hasMiniCoil == true)
+        {
+            Debug.Log("You already have Mini Coil!");
+        }
+        else
+        {
+            Debug.Log("Not enough money!");
+        }
     }
 
     public void slowUpgrade()
     {
-        C.coilSlowRate -= slowUpgradeAmount;
-        slowUpgradeAmount += 0.1f;
-    }
-
-    // Function that returns a value between 0 and 100
-    // that is used to repair the Coil based on your health percentage
-    public float percReplenishment(float value, float inMin, float inMax, float outMin, float outMax)
-    {
-        return ((value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin) / 100 * healthUpgradeAmount;
+        if (mS.gameCurrency >= slowUpgradeCost)
+        {
+            mS.gameCurrency -= slowUpgradeCost;
+            C.coilSlowRate -= slowUpgradeAmount;
+            slowUpgradeAmount += 0.1f;
+        }
+        else
+        {
+            Debug.Log("Not enough money!");
+        }
     }
 }
 
