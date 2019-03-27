@@ -5,19 +5,20 @@ using UnityEngine;
 public class upgradeSystem : MonoBehaviour
 {
     // Upgrade Values
+        // Floats
     private float repairAmount = 100f;
     private float healthUpgradeAmount = 2000f;
     private float energyUpgradeAmount = 2000f;
     private float slowUpgradeAmount = 0.2f;
-
+        // Integers
     private int repairCost = 150;
     private int healthUpgradeCost = 2000;
     private int energyUpgradeCost = 2000;
     private int slowUpgradeCost = 4000;
     private int miniCoilCost = 5000;
-
+        // Booleans
     public bool hasMiniCoil = false;
-
+        
     // Unity Hooks
     private moneySystem mS;
     private coilStats C;
@@ -25,10 +26,9 @@ public class upgradeSystem : MonoBehaviour
     private Rigidbody2D rb;
     private proceduralSpawning pS;
 
-
+    // Game Objects
     [SerializeField]
     private GameObject upgradeMenu;
-
     [SerializeField]
     private GameObject miniCoil;
 
@@ -45,11 +45,7 @@ public class upgradeSystem : MonoBehaviour
         pS = FindObjectOfType<proceduralSpawning>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
+    // Function that opens the upgrade menu
     public void upgradeMenuActive()
     {
         pS.stop = true;
@@ -57,6 +53,8 @@ public class upgradeSystem : MonoBehaviour
         upgradeMenu.SetActive(!upgradeMenu.activeSelf);
     }
 
+    // Next Day button 
+    // Function that closes the upgrade menu
     public void upgradeCompleted()
     {
         upgradeMenu.SetActive(false);
@@ -65,6 +63,8 @@ public class upgradeSystem : MonoBehaviour
         gH.nextDay = true;
     }
 
+    // Upgrade 01
+    // Function that calls for a repair
     public void repairCoil()
     {
         if ((C.coilHealth <= C.coilHealthMax - repairAmount) && (mS.gameCurrency >= repairCost))
@@ -88,6 +88,8 @@ public class upgradeSystem : MonoBehaviour
         }
     }
 
+    // Upgrade 02
+    // Function that upgrades coils max health
     public void healthUpgrade()
     {
         if (mS.gameCurrency >= healthUpgradeCost)
@@ -104,6 +106,8 @@ public class upgradeSystem : MonoBehaviour
         }
     }
 
+    // Upgrade 03
+    // Function that upgrades coils max energy
     public void energyUpgrade()
     {
         if (mS.gameCurrency >= energyUpgradeCost)
@@ -119,7 +123,9 @@ public class upgradeSystem : MonoBehaviour
             Debug.Log("Not enough money!");
         }
     }
-    
+
+    // Upgrade 04
+    // Function that enables mini coil
     public void purchaseMiniCoil()
     {
         if ((mS.gameCurrency >= miniCoilCost) && (hasMiniCoil == false))
@@ -138,6 +144,8 @@ public class upgradeSystem : MonoBehaviour
         }
     }
 
+    // Upgrade 05
+    // Function that upgrades coil slow rate
     public void slowUpgrade()
     {
         if (mS.gameCurrency >= slowUpgradeCost)
