@@ -9,6 +9,10 @@ public class miniCoilBehaviour : MonoBehaviour
     private float miniCoilDamage = 100f;
     private float miniCoilFireRate = 60f;
 
+    // Testing
+    public float range;
+    public Transform player;
+
     // Unity Hooks
     private upgradeSystem uS;
 
@@ -29,6 +33,10 @@ public class miniCoilBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Vector3.Distance(player.position, transform.position) <= range)
+        {
+            //go to player
+        }
     }
 
     public void miniCoilAggro()
