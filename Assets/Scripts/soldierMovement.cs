@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class soldierMovement : MonoBehaviour
 {
+    public float positionX;
     // Soldier Stats
     public float soldierSpeed = 30f;
     private float soldierSlowedSpeed;
@@ -25,6 +26,8 @@ public class soldierMovement : MonoBehaviour
     // Update is called once per frame 
     void FixedUpdate()
     {
+        positionX = rb.position.x;
+
         if ((Input.touchCount == 1) && (rb.position.x < sB.soldierAggroPos))
         {
             Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1041636333039626167}
   m_Layer: 0
   m_Name: Soldier
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f507edf99649040a9005234b750fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierHealth: 10
+  soldierHealth: 1000
   soldierDamage: 20
   soldierFireRate: 500
   soldierAggroPos: 4.5
@@ -158,4 +158,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d109be65826fc54bad13f7db6a7281a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionX: 0
   soldierSpeed: 35
