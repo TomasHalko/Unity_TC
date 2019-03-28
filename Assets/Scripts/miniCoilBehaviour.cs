@@ -5,21 +5,29 @@ using CodeMonkey.Utils;
 
 public class miniCoilBehaviour : MonoBehaviour
 {
+    public Transform target;
+    public float range = 15f;
+    public string enemyTag = "Enemy";
+    public int damage = 50;
+
     // Mini Coil Stats
     private float miniCoilDamage = 100f;
     private float miniCoilFireRate = 60f;
 
-    // Testing
-    public float range;
-    public Transform player;
-
     // Unity Hooks
     private upgradeSystem uS;
+    private airplaneBehaviour aB;
+    private soldierBehaviour sB;
 
     // Start is called before the first frame update
     void Start()
     {
         uS = FindObjectOfType<upgradeSystem>();
+        aB = FindObjectOfType<airplaneBehaviour>();
+        sB = FindObjectOfType<soldierBehaviour>();
+
+        InvokeRepeating("updateTarget", 0f, 0.5f);
+
         if (uS.hasMiniCoil == true)
         {
             // Periodic function for 
@@ -33,9 +41,39 @@ public class miniCoilBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.position, transform.position) <= range)
+        if (target == null)
         {
-            //go to player
+            return;
+        }
+        else
+        {
+            
+        }
+    }
+
+    void updateTarget ()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
+        }
+
+        if (nearestEnemy != null && shortestDistance <= range)
+        {
+            target = nearestEnemy.transform;
+        }
+        else
+        {
+            target = null;
         }
     }
 
@@ -43,4 +81,32 @@ public class miniCoilBehaviour : MonoBehaviour
     {
         Debug.Log("Shoot!");
     }
+
+    void OnDrawGizmosSelected()
+    {
+        // Display the explosion radius when selected
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, range/10);
+    }
+
+    /* void Damage(Transform enemy)
+    {
+        Enemy e = enemy.GetComponent<Enemy>();
+
+        if (e != null)
+        {
+            TakeDamage(damage);
+        }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    } */
 }
+

@@ -804,7 +804,6 @@ RectTransform:
   - {fileID: 1856165615}
   - {fileID: 215838254}
   - {fileID: 2115660904}
-  - {fileID: 917496342}
   - {fileID: 1137792039}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1498,17 +1497,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917496341}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 712052661}
-  m_RootOrder: 4
+  m_Father: {fileID: 2115660904}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365.3, y: -68.403}
-  m_SizeDelta: {x: 45.8, y: 85.694}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -22.599945, y: 42.597}
+  m_SizeDelta: {x: 45.800003, y: 85.694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917496343
 MonoBehaviour:
@@ -1559,6 +1558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9788b02c274c274e8429b8d0a7b3af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  range: 89.6
+  enemyTag: Enemy
 --- !u!1 &947358247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,7 +1708,7 @@ RectTransform:
   - {fileID: 717776047}
   - {fileID: 355864116}
   m_Father: {fileID: 712052661}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2491,7 +2493,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 917496342}
   m_Father: {fileID: 712052661}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
