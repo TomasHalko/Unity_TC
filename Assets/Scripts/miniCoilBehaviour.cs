@@ -89,7 +89,7 @@ public class miniCoilBehaviour : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range/10);
     }
 
-    /* void Damage(Transform enemy)
+     void Damage(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
 
@@ -107,6 +107,6 @@ public class miniCoilBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    } */
+    } 
 }
 
