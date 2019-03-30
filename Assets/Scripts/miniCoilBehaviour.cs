@@ -88,10 +88,10 @@ public class miniCoilBehaviour : MonoBehaviour
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, range/10);
     }
-
-    /* void Damage(Transform enemy)
+    // TESTING
+      /* void Damage(Transform target)
     {
-        Enemy e = enemy.GetComponent<Enemy>();
+        Enemy e = target.GetComponent<soldierBehaviour>();
 
         if (e != null)
         {
@@ -101,9 +101,9 @@ public class miniCoilBehaviour : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        health -= amount;
+        soldierHealth -= amount;
 
-        if (health <= 0)
+        if (soldierHealth <= 0)
         {
             Destroy(gameObject);
         }
