@@ -2501,7 +2501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -61.100098, y: -19}
+  m_AnchoredPosition: {x: -61.100098, y: -18.2}
   m_SizeDelta: {x: 98.600006, y: 184.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2115660905
@@ -2558,8 +2558,8 @@ MonoBehaviour:
   coilEnergy: 1000
   coilEnergyMax: 1000
   coilEnergyRechargePerSec: 100
-  coilTapEnergyConsumption: 5
-  coilHoldEnergyConsumption: 1
+  coilTapEnergyConsumption: 4
+  coilHoldEnergyConsumption: 2
   coilTapDamage: 50
   coilHoldDamage: 25
   coilSlowRate: 0.6
