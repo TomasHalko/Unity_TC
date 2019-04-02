@@ -88,6 +88,7 @@ public class miniCoilBehaviour : MonoBehaviour
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, range/10);
     }
+
     // TESTING
       /* void Damage(Transform target)
     {
