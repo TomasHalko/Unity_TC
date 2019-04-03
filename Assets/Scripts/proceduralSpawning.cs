@@ -29,7 +29,7 @@ public class proceduralSpawning : MonoBehaviour
     {
         gH = FindObjectOfType<gameHandler>();
         StartCoroutine(waitSpawner());
-        dayNumber = 1;
+        dayNumber = 6;
         difficultyIndex = 0;
     }
 
@@ -147,9 +147,9 @@ public class proceduralSpawning : MonoBehaviour
         {
             Vector3 groundSpawnPosition = new Vector3(Random.Range(-groundSpawnValues.x - 13f, groundSpawnValues.x - 13f), Random.Range(-groundSpawnValues.y - 1.75f, groundSpawnValues.y - 1.75f), 1);
             Vector3 airSpawnPosition = new Vector3(Random.Range(-airSpawnValues.x - 13f, airSpawnValues.x - 13f), Random.Range(-airSpawnValues.y + 2.25f, airSpawnValues.y + 2.25f), 1);
-
+            randomAirEnemy = Random.Range(0, airEnemies.Length - 1);
             randomGroundEnemy = Random.Range(0, groundEnemies.Length);
-            randomAirEnemy = Random.Range(0, airEnemies.Length);
+            
 
             if ((randomGroundEnemy == 0) && (difficultyIndex + 0.1 <= 6))
             {

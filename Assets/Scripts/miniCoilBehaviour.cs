@@ -23,32 +23,24 @@ public class miniCoilBehaviour : MonoBehaviour
     void Start()
     {
         uS = FindObjectOfType<upgradeSystem>();
-        aB = FindObjectOfType<airplaneBehaviour>();
-        sB = FindObjectOfType<soldierBehaviour>();
+
 
         InvokeRepeating("updateTarget", 0f, 0.5f);
 
-        if (uS.hasMiniCoil == true)
-        {
             // Periodic function for 
             FunctionPeriodic.Create(() =>
             {
-                miniCoilAggro();
+                if ((uS.hasMiniCoil == true) && (target != null))
+                {
+                    miniCoilAggro();
+                }     
             }, 60f / miniCoilFireRate);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
-        {
-            return;
-        }
-        else
-        {
-            
-        }
+
     }
 
     void updateTarget ()
@@ -79,7 +71,10 @@ public class miniCoilBehaviour : MonoBehaviour
 
     public void miniCoilAggro()
     {
+        GetTransformScripts();
         Debug.Log("Shoot!");
+ 
+        aB.airplaneHealth -= 400f;
     }
 
     void OnDrawGizmosSelected()
@@ -90,24 +85,30 @@ public class miniCoilBehaviour : MonoBehaviour
     }
 
     // TESTING
-      /* void Damage(Transform target)
-    {
-        Enemy e = target.GetComponent<soldierBehaviour>();
+    /* void Damage(Transform target)
+  {
+      Enemy e = target.GetComponent<soldierBehaviour>();
 
-        if (e != null)
-        {
-            TakeDamage(damage);
-        }
+      if (e != null)
+      {
+          TakeDamage(damage);
+      }
+  }
+
+  public void TakeDamage(float amount)
+  {
+      soldierHealth -= amount;
+
+      if (soldierHealth <= 0)
+      {
+          Destroy(gameObject);
+      }
+  } */
+
+    void GetTransformScripts()
+    {
+        sB = target.GetComponent<soldierBehaviour>();
+        aB = target.GetComponent<airplaneBehaviour>();
     }
-
-    public void TakeDamage(float amount)
-    {
-        soldierHealth -= amount;
-
-        if (soldierHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    } */
 }
 
