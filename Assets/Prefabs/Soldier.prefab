@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5257804862036497384}
   - component: {fileID: 5257804862036497385}
   - component: {fileID: 5257804862036497386}
-  - component: {fileID: 5257804862036497388}
   - component: {fileID: 1041636333039626167}
+  - component: {fileID: 8330643310170962744}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Enemy
@@ -130,7 +130,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5257804862036497388
+--- !u!114 &1041636333039626167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5257804862036497389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d109be65826fc54bad13f7db6a7281a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  soldierSpeed: 35
+--- !u!114 &8330643310170962744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,17 +160,3 @@ MonoBehaviour:
   soldierDamage: 20
   soldierFireRate: 500
   soldierAggroPos: 4.5
---- !u!114 &1041636333039626167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5257804862036497389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d109be65826fc54bad13f7db6a7281a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positionX: 0
-  soldierSpeed: 35

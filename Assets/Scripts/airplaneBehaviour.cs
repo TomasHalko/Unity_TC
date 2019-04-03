@@ -51,6 +51,13 @@ public class airplaneBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (airplaneHealth <= 0)
+        {
+            gH.numberOfEnemies -= 1;
+            mS.gameCurrency += 1250;
+            mS.gameScore += 2850;
+            Destroy(gameObject);
+        }
 
         if (Input.touchCount == 1)
         {
@@ -124,15 +131,6 @@ public class airplaneBehaviour : MonoBehaviour
             C.coilEnergy -= C.coilTapEnergyConsumption;
             Debug.Log("Airplane took: " + C.coilTapDamage);
         }
-
-        if (airplaneHealth <= 0)
-        {
-            gH.numberOfEnemies -= 1;
-            mS.gameCurrency += 1250;
-            mS.gameScore += 2850;
-            Destroy(gameObject);
-        }
-
     }
 
     private void coilHoldDamage()
@@ -143,15 +141,6 @@ public class airplaneBehaviour : MonoBehaviour
             C.coilEnergy -= C.coilHoldEnergyConsumption;
             Debug.Log("Airplane took: " + C.coilHoldDamage);
         }
-
-        if (airplaneHealth <= 0)
-        {
-            gH.numberOfEnemies -= 1;
-            mS.gameCurrency += 1250;
-            mS.gameScore += 2850;
-            Destroy(gameObject);
-        }
-
     }
 
     private void coilTapMiss()
@@ -161,7 +150,6 @@ public class airplaneBehaviour : MonoBehaviour
             C.coilEnergy -= C.coilTapEnergyConsumption;
             Debug.Log("You missed");
         }
-
     }
 
     private void coilHoldMiss()
@@ -187,7 +175,6 @@ public class airplaneBehaviour : MonoBehaviour
                 C.coilHealth -= airplaneDamage;
             }
         }
-
     }
     private void stopAirplaneAggro()
     {

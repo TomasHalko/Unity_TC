@@ -44,6 +44,14 @@ public class soldierBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (soldierHealth <= 0)
+        {
+            gH.enemiesKilled += 1;
+            mS.gameCurrency += 500;
+            mS.gameScore += 1350;
+            Destroy(gameObject);
+        }
+
         for (int i = 0; i < Input.touchCount; i++)
         {
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
@@ -121,24 +129,13 @@ public class soldierBehaviour : MonoBehaviour
 
     private void coilTapDamage()
     {
-        if (
-            
-            
+        if (  
             C.coilEnergy >= C.coilTapEnergyConsumption)
         {
             soldierHealth -= C.coilTapDamage;
             C.coilEnergy -= C.coilTapEnergyConsumption;
             Debug.Log("Soldier took: " + C.coilTapDamage);
         }
-
-        if (soldierHealth <= 0)
-        {
-            gH.enemiesKilled += 1;
-            mS.gameCurrency += 500;
-            mS.gameScore += 1350;
-            Destroy(gameObject);
-        }
-
     }
 
     private void coilHoldDamage()
@@ -149,15 +146,6 @@ public class soldierBehaviour : MonoBehaviour
             C.coilEnergy -= C.coilHoldEnergyConsumption;
             Debug.Log("Soldier took: " + C.coilHoldDamage);
         }
-
-        if (soldierHealth <= 0)
-        {
-            gH.enemiesKilled += 1;
-            mS.gameCurrency += 500;
-            mS.gameScore += 1350;
-            Destroy(gameObject);
-        }
-
     }
 
     private void coilTapMiss()
