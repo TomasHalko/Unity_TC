@@ -6,9 +6,10 @@ using CodeMonkey.Utils;
 public class miniCoilBehaviour : MonoBehaviour
 {
     public Transform target;
+    public Transform soldier;
     public float range = 15f;
     public string enemyTag = "Enemy";
-    public int damage = 50;
+    public float damage = 50f;
 
     // Mini Coil Stats
     private float miniCoilDamage = 100f;
@@ -73,8 +74,10 @@ public class miniCoilBehaviour : MonoBehaviour
     {
         GetTransformScripts();
         Debug.Log("Shoot!");
- 
-        aB.airplaneHealth -= 400f;
+        if (target = soldier)
+        {
+            sB.soldierHealth -= damage;
+        }
     }
 
     void OnDrawGizmosSelected()
@@ -83,27 +86,6 @@ public class miniCoilBehaviour : MonoBehaviour
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, range/10);
     }
-
-    // TESTING
-    /* void Damage(Transform target)
-  {
-      Enemy e = target.GetComponent<soldierBehaviour>();
-
-      if (e != null)
-      {
-          TakeDamage(damage);
-      }
-  }
-
-  public void TakeDamage(float amount)
-  {
-      soldierHealth -= amount;
-
-      if (soldierHealth <= 0)
-      {
-          Destroy(gameObject);
-      }
-  } */
 
     void GetTransformScripts()
     {
