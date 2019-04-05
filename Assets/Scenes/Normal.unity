@@ -1458,7 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb4c823d6e188b4a8d9a6d1d27ffe85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayNumber: 2
+  dayNumber: 0
   difficultyIndex: 0
   groundEnemies:
   - {fileID: 5257804862036497389, guid: b358dd09923c36d479ac2d91eb8494db, type: 3}
@@ -1467,9 +1467,9 @@ MonoBehaviour:
   airEnemies:
   - {fileID: 6033531195781920132, guid: f8548e7d65bc37845af31d0e2dfeeea0, type: 3}
   airSpawnValues: {x: 0, y: 1, z: 0}
-  spawnMostWait: 0.5
-  spawnLeastWait: 0.3
-  startWait: 0
+  spawnMostWait: 0
+  spawnLeastWait: 0
+  startWait: 1
   stop: 0
 --- !u!1 &917496341
 GameObject:
@@ -1559,6 +1559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  soldier: {fileID: 5257804862036497383, guid: b358dd09923c36d479ac2d91eb8494db, type: 3}
   range: 89.6
   enemyTag: Enemy
   damage: 50
