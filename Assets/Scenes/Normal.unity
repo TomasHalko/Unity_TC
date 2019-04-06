@@ -1560,6 +1560,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   soldier: {fileID: 5257804862036497383, guid: b358dd09923c36d479ac2d91eb8494db, type: 3}
+  tank: {fileID: 4453911716519701781, guid: c5034a9bfd872374789cfc58c5323f46, type: 3}
+  airplane: {fileID: 2553754410131029417, guid: f8548e7d65bc37845af31d0e2dfeeea0,
+    type: 3}
   range: 89.6
   enemyTag: Enemy
   damage: 50
