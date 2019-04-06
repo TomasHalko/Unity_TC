@@ -1467,9 +1467,9 @@ MonoBehaviour:
   airEnemies:
   - {fileID: 6033531195781920132, guid: f8548e7d65bc37845af31d0e2dfeeea0, type: 3}
   airSpawnValues: {x: 0, y: 1, z: 0}
-  spawnMostWait: 0
-  spawnLeastWait: 0
-  startWait: 1
+  spawnMostWait: 0.5
+  spawnLeastWait: 1
+  startWait: 0
   stop: 0
 --- !u!1 &917496341
 GameObject:
@@ -1565,7 +1565,7 @@ MonoBehaviour:
     type: 3}
   range: 89.6
   enemyTag: Enemy
-  damage: 50
+  damage: 300
 --- !u!1 &947358247
 GameObject:
   m_ObjectHideFlags: 0
