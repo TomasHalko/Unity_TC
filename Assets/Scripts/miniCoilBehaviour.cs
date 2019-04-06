@@ -7,6 +7,8 @@ public class miniCoilBehaviour : MonoBehaviour
 {
     public Transform target;
     public Transform soldier;
+    public Transform tank;
+    public Transform airplane;
     public float range = 15f;
     public string enemyTag = "Enemy";
     public float damage = 50f;
@@ -19,6 +21,7 @@ public class miniCoilBehaviour : MonoBehaviour
     private upgradeSystem uS;
     private airplaneBehaviour aB;
     private soldierBehaviour sB;
+    private tankBehaviour tB;
 
     // Start is called before the first frame update
     void Start()
@@ -73,10 +76,21 @@ public class miniCoilBehaviour : MonoBehaviour
     public void miniCoilAggro()
     {
         GetTransformScripts();
-        Debug.Log("Shoot!");
+
         if (target = soldier)
         {
             sB.soldierHealth -= damage;
+            Debug.Log("Shoot at soldier!");
+        }
+        else if(target = tank)
+        {
+            tB.tankHealth -= damage;
+            Debug.Log("Shoot at tank!");
+        }
+        else if (target = airplane)
+        {
+            aB.airplaneHealth -= damage;
+            Debug.Log("Shoot at airplane!");
         }
     }
 
@@ -91,6 +105,7 @@ public class miniCoilBehaviour : MonoBehaviour
     {
         sB = target.GetComponent<soldierBehaviour>();
         aB = target.GetComponent<airplaneBehaviour>();
+        tB = target.GetComponent<tankBehaviour>();
     }
 }
 
