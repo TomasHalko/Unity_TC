@@ -29,7 +29,7 @@ public class proceduralSpawning : MonoBehaviour
     {
         gH = FindObjectOfType<gameHandler>();
         StartCoroutine(waitSpawner());
-        dayNumber = 3;
+        dayNumber = 1;
         difficultyIndex = 0;
     }
 
