@@ -6,7 +6,7 @@ using CodeMonkey.Utils;
 public class miniCoilBehaviour : MonoBehaviour
 {
     // Mini Coil Stats
-    private float miniCoilDamage = 800f;
+    private float miniCoilDamage = 450f;
     private float miniCoilFireRate = 60f;
     private float miniCoilRange = 89.8f;
 

@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f746c7f3e2159a24799bd9845e9b487d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airplaneHealth: 500
+  airplaneHealth: 750
   airplaneDamage: 150
   airplaneFireRate: 350
   airplaneAggroPosStart: 0
