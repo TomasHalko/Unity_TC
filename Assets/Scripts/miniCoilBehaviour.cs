@@ -5,27 +5,24 @@ using CodeMonkey.Utils;
 
 public class miniCoilBehaviour : MonoBehaviour
 {
-    public Transform target;
-    public Transform soldier;
-    public Transform tank;
-    public Transform airplane;
-    public float range = 15f;
-    public string enemyTag = "Enemy";
-    public float damage = 50f;
-
     // Mini Coil Stats
-    private float miniCoilDamage = 100f;
+    private float miniCoilDamage = 450f;
     private float miniCoilFireRate = 60f;
+    private float miniCoilRange = 89.8f;
 
     // Unity Hooks
     private upgradeSystem uS;
     private airplaneBehaviour aB;
     private soldierBehaviour sB;
     private tankBehaviour tB;
+    public string enemy_name;
+    public Transform targetLocked;
+    private string enemyTag = "Enemy";
 
     // Start is called before the first frame update
     void Start()
     {
+
         uS = FindObjectOfType<upgradeSystem>();
 
 
@@ -34,7 +31,7 @@ public class miniCoilBehaviour : MonoBehaviour
             // Periodic function for 
             FunctionPeriodic.Create(() =>
             {
-                if ((uS.hasMiniCoil == true) && (target != null))
+                if ((uS.hasMiniCoil == true) && (targetLocked != null))
                 {
                     miniCoilAggro();
                 }     
@@ -44,7 +41,6 @@ public class miniCoilBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void updateTarget ()
@@ -52,6 +48,8 @@ public class miniCoilBehaviour : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
+        enemy_name = null;
+
 
         foreach (GameObject enemy in enemies)
         {
@@ -63,34 +61,36 @@ public class miniCoilBehaviour : MonoBehaviour
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= range)
+        if (nearestEnemy != null && shortestDistance <= miniCoilRange)
         {
-            target = nearestEnemy.transform;
+            enemy_name = nearestEnemy.name;
+            targetLocked = nearestEnemy.transform;
         }
         else
         {
-            target = null;
+            targetLocked = null;
         }
     }
 
     public void miniCoilAggro()
     {
-        GetTransformScripts();
-
-        if (target = soldier)
+        if ((enemy_name == "Soldier(Clone)") && (enemy_name != null))
         {
-            sB.soldierHealth -= damage;
-            Debug.Log("Shoot at soldier!");
+            Debug.Log("Soldier locked");
+            soldierBehaviour sB = targetLocked.GetComponentInChildren<soldierBehaviour>();
+            sB.soldierHealth -= miniCoilDamage;
         }
-        else if(target = tank)
+        else if ((enemy_name == "Tank(Clone)") && (enemy_name != null))
         {
-            tB.tankHealth -= damage;
-            Debug.Log("Shoot at tank!");
+            Debug.Log("Tank locked");
+            tankBehaviour tB = targetLocked.GetComponentInChildren<tankBehaviour>();
+            tB.tankHealth -= miniCoilDamage;
         }
-        else if (target = airplane)
+        else if ((enemy_name == "Airplane(Clone)") && (enemy_name != null))
         {
-            aB.airplaneHealth -= damage;
-            Debug.Log("Shoot at airplane!");
+            Debug.Log("Airplane locked");
+            airplaneBehaviour aB = targetLocked.GetComponentInChildren<airplaneBehaviour>();
+            aB.airplaneHealth -= miniCoilDamage;
         }
     }
 
@@ -98,14 +98,14 @@ public class miniCoilBehaviour : MonoBehaviour
     {
         // Display the explosion radius when selected
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, range/10);
+        Gizmos.DrawWireSphere(transform.position, miniCoilRange/10);
     }
 
     void GetTransformScripts()
     {
-        sB = target.GetComponent<soldierBehaviour>();
-        aB = target.GetComponent<airplaneBehaviour>();
-        tB = target.GetComponent<tankBehaviour>();
+        soldierBehaviour sB = targetLocked.GetComponentInChildren<soldierBehaviour>();
+        tankBehaviour tB = targetLocked.GetComponentInChildren<tankBehaviour>();
+        airplaneBehaviour aB = targetLocked.GetComponentInChildren<airplaneBehaviour>();   
     }
 }
 

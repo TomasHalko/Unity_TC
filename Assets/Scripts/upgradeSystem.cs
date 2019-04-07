@@ -73,7 +73,7 @@ public class upgradeSystem : MonoBehaviour
             mS.gameCurrency -= repairCost;
         }
 
-        else if (mS.gameCurrency >= repairCost)
+        else if ((mS.gameCurrency >= repairCost) && (C.coilHealthMax != C.coilHealth))
         {
             C.coilHealth += C.coilHealthMax - C.coilHealth;
             mS.gameCurrency -= repairCost;

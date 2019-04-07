@@ -1558,8 +1558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9788b02c274c274e8429b8d0a7b3af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  string_name: 
   target: {fileID: 0}
-  soldier: {fileID: 5257804862036497383, guid: b358dd09923c36d479ac2d91eb8494db, type: 3}
+  soldier: {fileID: 5257804862036497389, guid: b358dd09923c36d479ac2d91eb8494db, type: 3}
   tank: {fileID: 4453911716519701781, guid: c5034a9bfd872374789cfc58c5323f46, type: 3}
   airplane: {fileID: 2553754410131029417, guid: f8548e7d65bc37845af31d0e2dfeeea0,
     type: 3}
