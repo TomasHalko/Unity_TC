@@ -44,6 +44,13 @@ public class tankBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tankHealth <= 0)
+        {
+            gH.numberOfEnemies -= 1;
+            mS.gameCurrency += 1150;
+            mS.gameScore += 2150;
+            Destroy(gameObject);
+        }
 
         if (Input.touchCount == 1)
         {
@@ -121,15 +128,6 @@ public class tankBehaviour : MonoBehaviour
             C.coilEnergy -= C.coilTapEnergyConsumption;
             Debug.Log("Tank took: " + C.coilTapDamage);
         }
-
-        if (tankHealth <= 0)
-        {
-            gH.numberOfEnemies -= 1;
-            mS.gameCurrency += 1150;
-            mS.gameScore += 2150;
-            Destroy(gameObject);
-        }
-
     }
 
     private void coilHoldDamage()
@@ -140,15 +138,6 @@ public class tankBehaviour : MonoBehaviour
             C.coilEnergy -= C.coilHoldEnergyConsumption;
             Debug.Log("Tank took: " + C.coilHoldDamage);
         }
-
-        if (tankHealth <= 0)
-        {
-            gH.numberOfEnemies -= 1;
-            mS.gameCurrency += 1150;
-            mS.gameScore += 2150;
-            Destroy(gameObject);
-        }
-
     }
 
     private void coilTapMiss()
